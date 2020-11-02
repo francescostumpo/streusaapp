@@ -1,0 +1,12 @@
+---
+applications:
+  - instances: 1
+    timeout: 240
+    name: streusa21mylibraryapp
+    buildpack: java_buildpack
+    path: ./target/streusaapp-1.0.0.war
+    disk_quota: 1G
+    memory: 256M
+    domain: eu-gb.mybluemix.net
+    host: streusa21-mylibraryapp
+
