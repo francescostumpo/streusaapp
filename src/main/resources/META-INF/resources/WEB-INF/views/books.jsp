@@ -53,6 +53,20 @@
                         <div class="card-body">
                             <form>
                                 <div class="row">
+                                    <div class="col-md-6 pr-md-1">
+                                        <p>Carica informazioni da Google</p>
+                                    </div>
+                                    <div class="col-md-4 pl-md-1">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" ng-model="isbn" placeholder="ISBN">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 pl-md-1">
+                                        <button type="submit" class="btn btn-primary" ng-click="findBook(isbn)">Cerca</button>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
                                     <div class="col-md-8 pr-md-1">
                                         <div class="form-group">
                                             <label>Titolo</label>

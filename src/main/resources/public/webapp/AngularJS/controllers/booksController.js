@@ -89,6 +89,40 @@ streusaApp.controller("booksController", ['$scope', '$http', '$location', '$root
         })
     }
 
+    $scope.findBook = function (isbn){
+        mainController.startProgressIndicator('#loading');
+        $http.get('https://www.googleapis.com/books/v1/volumes?q=isbn:'+isbn).then(function(response){
+            try{
+                const data = response.data;
+                if(data.totalItems > 0){
+                    const book = data.items[0];
+                    $scope.newBook.title = book.volumeInfo.title;
+                    let author = '';
+                    for(let i = 0; i < book.volumeInfo.authors.length; i ++){
+                        if(i === 0){
+                            author = book.volumeInfo.authors[i];
+                        }else{
+                            author = author + ', ' +book.volumeInfo.authors[i];
+                        }
+                    }
+                    $scope.newBook.author = author;
+                }
+                else{
+                    alert('Nessun libro trovato con il seguente ISBN: ' + isbn)
+                }
+                $scope.newBook.barCode = isbn;
+
+            }catch (e) {
+                alert('Errore generico');
+            }
+            mainController.stopProgressIndicator('#loading');
+        }).catch(() =>{
+            mainController.stopProgressIndicator('#loading');
+            alert('Errore generico');
+        })
+
+    }
+
 
 
 }]);
