@@ -55,7 +55,7 @@
                             <thead>
                             <tr>
                                 <th width="60%">Titolo</th>
-                                <th width="25%">Autore</th>
+                                <th width="25%">Barcode</th>
                                 <th width="10%">Prezzo</th>
                                 <th width="5%"></th>
                             </tr>
@@ -63,7 +63,7 @@
                             <tbody>
                             <tr ng-repeat="book in books">
                                 <td>{{book.title}}</td>
-                                <td>{{book.author}}</td>
+                                <td>{{book.barCode}}</td>
                                 <td>{{book.price}}</td>
                                 <td><i class="fas fa-plus-circle" style="cursor: pointer;" ng-click="addToAnteprimaView('book', book)"></i></td>
                             </tr>

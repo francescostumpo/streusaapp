@@ -9,6 +9,7 @@ public class Book {
     private String editor;
     private String supplier;
     private String genre;
+    private String barCode;
     private float price;
     private int quantity;
 
@@ -82,5 +83,13 @@ public class Book {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+    public String getBarCode() {
+        return barCode;
+    }
+
+    public void setBarCode(String barCode) {
+        this.barCode = barCode;
     }
 }

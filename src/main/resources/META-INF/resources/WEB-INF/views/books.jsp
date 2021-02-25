@@ -89,7 +89,7 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-8 pr-md-1">
+                                    <div class="col-md-4 pr-md-1">
                                         <div class="form-group">
                                             <label>Fornitore</label>
                                             <select type="text" ng-init="newBook.supplier = suppliers[0].nome" class="form-control" ng-model="newBook.supplier">
@@ -102,6 +102,12 @@
                                         <select type="text" ng-init="newBook.genre = genres[0].nome" class="form-control" ng-model="newBook.genre">
                                             <option ng-repeat="genre in genres" value="{{genre.nome}}"> {{ genre.nome }} </option>
                                         </select>
+                                    </div>
+                                    <div class="col-md-4 pl-md-1">
+                                        <div class="form-group">
+                                            <label>Barcode</label>
+                                            <input type="text" class="form-control" ng-model="newBook.barCode">
+                                        </div>
                                     </div>
                                 </div>
                             </form>
@@ -205,6 +211,14 @@
                                             <select type="text" ng-init="editBook.genre" class="form-control" ng-model="editBook.genre">
                                                 <option ng-repeat="genre in genres" value="{{genre.nome}}"> {{ genre.nome }} </option>
                                             </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 px-md-1">
+                                        <div class="form-group">
+                                            <label>Barcode</label>
+                                            <input type="text" class="form-control" ng-model="editBook.barCode">
                                         </div>
                                     </div>
                                 </div>
