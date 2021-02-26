@@ -66,7 +66,7 @@
                                 <select type="text" ng-init="queryEditor.editor = suppliers[0].nome" class="form-control col-md-3 pr-md-1" ng-model="queryEditor.editor">
                                     <option ng-repeat="editor in editors | orderBy:'editor.nome'" value="{{editor.nome}}"> {{ editor.nome }} </option>
                                 </select>
-                                <button type="submit" class="btn btn-primary col-md-2 pr-md-1" style="cursor:pointer;" ng-click="extractBooksLinkedToEditor(queryEditor)">Procedi all'estrazione</button>
+                                <button type="submit" class="btn btn-primary col-md-2 pr-md-1" style="cursor:pointer;" ng-click="extractBooksLinkedToEditor(queryEditor)" disabled>Procedi all'estrazione</button>
                             </div>
 
                     </div>

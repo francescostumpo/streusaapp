@@ -84,9 +84,10 @@
                                     <div class="col-md-8 pr-md-1">
                                         <div class="form-group">
                                             <label>Editore</label>
-                                            <select type="text" ng-init="newBook.editor = editors[0].nome" class="form-control" ng-model="newBook.editor">
+                                            <!--<select type="text" ng-init="newBook.editor = editors[0].nome" class="form-control" ng-model="newBook.editor">
                                                 <option ng-repeat="editor in editors" value="{{editor.nome}}"> {{ editor.nome }} </option>
-                                            </select>
+                                            </select>-->
+                                            <input type="text" class="form-control" ng-model="newBook.editor">
                                         </div>
                                     </div>
                                     <div class="col-md-2 px-md-1">
@@ -188,9 +189,10 @@
                                     <div class="col-md-12 px-md-1">
                                         <div class="form-group">
                                             <label>Editore</label>
-                                            <select type="text" ng-init="editBook.editor" class="form-control" ng-model="editBook.editor">
+                                            <!--<select type="text" ng-init="editBook.editor" class="form-control" ng-model="editBook.editor">
                                                 <option ng-repeat="editor in editors" value="{{editor.nome}}"> {{ editor.nome }} </option>
-                                            </select>
+                                            </select>-->
+                                            <input type="text" class="form-control" ng-model="editBook.editor">
                                         </div>
                                     </div>
                                 </div>
