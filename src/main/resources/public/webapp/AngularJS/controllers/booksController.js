@@ -95,17 +95,33 @@ streusaApp.controller("booksController", ['$scope', '$http', '$location', '$root
             try{
                 const data = response.data;
                 if(data.totalItems > 0){
-                    const book = data.items[0];
-                    $scope.newBook.title = book.volumeInfo.title;
-                    let author = '';
-                    for(let i = 0; i < book.volumeInfo.authors.length; i ++){
-                        if(i === 0){
-                            author = book.volumeInfo.authors[i];
-                        }else{
-                            author = author + ', ' +book.volumeInfo.authors[i];
+                    const bookFound = data.items[0];
+                    const bookLink = bookFound.selfLink;
+
+                    $http.get(bookLink).then(function(response){
+                        console.log(response);
+                        const book = response.data;
+                        $scope.newBook.title = book.volumeInfo.title;
+                        let author = '';
+                        for(let i = 0; i < book.volumeInfo.authors.length; i ++){
+                            if(i === 0){
+                                author = book.volumeInfo.authors[i];
+                            }else{
+                                author = author + ', ' +book.volumeInfo.authors[i];
+                            }
                         }
-                    }
-                    $scope.newBook.author = author;
+                        $scope.newBook.author = author;
+                        $scope.newBook.editor = book.volumeInfo.publisher;
+                        $scope.newBook.quantity = 1;
+                        if(book.saleInfo.saleability === 'FOR_SALE'){
+                            $scope.newBook.price = book.volumeInfo.saleInfo.retailPrice.amount;
+                        }
+                        console.log($scope.newBook);
+                        mainController.stopProgressIndicator('#loading');
+                    }).catch(() => {
+                        mainController.stopProgressIndicator('#loading');
+                        alert('Errore generico');
+                    })
                 }
                 else{
                     alert('Nessun libro trovato con il seguente ISBN: ' + isbn)

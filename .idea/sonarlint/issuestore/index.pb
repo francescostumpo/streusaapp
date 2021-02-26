@@ -25,3 +25,6 @@ j
 :src/main/java/org/streusa/controllers/BooksController.java,4/b/4bceb02821c1bb6f5bacb4f98b749f53ae5aa46a
 <
 manifest.yml,2/4/24859e6ddc41947e69f551c4e9ae37e6f72faafa
+:
+
+.gitignore,a/5/a5cc2925ca8258af241be7e5b0381edf30266302
