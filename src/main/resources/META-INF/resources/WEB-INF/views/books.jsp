@@ -46,7 +46,7 @@
                 </div>
                 <hr>
                 <div class="row" ng-show="newBookView">
-                    <div class="card col-md-8 col-lg-8">
+                    <div class="card col-md-9 col-lg-9">
                         <div class="card-header">
                             Nuovo Libro
                         </div>
@@ -133,16 +133,17 @@
                 </div>
 
                 <div class="row" ng-show="allBooksView">
-                    <div class="card col-md-8 col-lg-8" ng-init="retrieveAllBooks()">
+                    <div class="card col-md-9 col-lg-9" ng-init="retrieveAllBooks()">
                         <div class="card-header">
                             Tutti i Libri
                         </div>
                         <table datatable="ng" class="row-border hover">
                             <thead>
                             <tr>
-                                <th width="40%">Titolo</th>
+                                <th width="25%">Titolo</th>
                                 <th width="20%">Autore</th>
                                 <th width="20%">Fornitore</th>
+                                <th width="15%">Barcode</th>
                                 <th width="10%">Qt.</th>
                                 <th width="5%"></th>
                                 <th width="5%"></th>
@@ -153,6 +154,7 @@
                                 <td>{{book.title}}</td>
                                 <td>{{book.author}}</td>
                                 <td>{{book.supplier}}</td>
+                                <td>{{book.barCode}}</td>
                                 <td>{{book.quantity}}</td>
                                 <td><i class="far fa-edit" style="cursor: pointer;" ng-click="setEditBookView(book)"></i></td>
                                 <td><i class="fa fa-trash" style="cursor: pointer;" ng-click="deleteBook(book)"></i></td>
@@ -160,7 +162,7 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="card col-md-4 col-lg-4" ng-show="editBookView">
+                    <div class="card col-md-3 col-lg-3" ng-show="editBookView">
                         <div class="card-header">
                             Modifica Libro
                         </div>
