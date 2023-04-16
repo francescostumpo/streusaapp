@@ -49,5 +49,5 @@ jobs:
         with:
           app-name: 'streusa'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_357E6BC6DD5C49FFA3DA01C72C4A2746 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_4FBC9E559DCA4C27BABC795443BCC577 }}
           package: '*.war'
