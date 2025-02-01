@@ -3,9 +3,30 @@ streusaApp.controller("booksController", ['$scope', '$http', '$location', '$root
 
     var host = mainController.getHost();
 
+    $scope.booksToDelete = {};
+
     $scope.newBookView = false;
     $scope.allBooksView = true;
     $scope.editBookView = false;
+
+    $scope.addToListToDelete = function(book) {
+        // Check if key exists
+        if (book._id in $scope.booksToDelete) {
+            delete $scope.booksToDelete[book._id]; // Remove key and value
+        } else {
+            $scope.booksToDelete[book._id] = book; // Insert key and value
+        }
+    }
+
+    $scope.deleteSelectedBooks = function(){
+        mainController.startProgressIndicator('#loading');
+        let booksToDeleteList = Object.values($scope.booksToDelete)
+
+        $http.post(host+"/booksController/api/deleteSelectedBooks/booksAdmin", booksToDeleteList).then(function(response){
+            $scope.retrieveAllBooks();
+            mainController.stopProgressIndicator('#loading');
+        })
+    }
 
     $scope.setNewBookView = function(){
         $scope.newBookView = true;

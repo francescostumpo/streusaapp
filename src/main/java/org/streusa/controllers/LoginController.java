@@ -47,6 +47,7 @@ public class LoginController {
             }else{
                 jo.put("message", "Username o Password errate.");
             }
+            jo.put("profileName", user.getEmail() + " " + user.getNome());
         }catch (Exception e){
             e.printStackTrace();
             jo.put("message", "Errore: " + e.getMessage());

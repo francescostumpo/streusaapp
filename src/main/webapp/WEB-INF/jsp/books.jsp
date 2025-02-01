@@ -136,7 +136,8 @@
                 <div class="row" ng-show="allBooksView">
                     <div class="card col-md-9 col-lg-9" ng-init="retrieveAllBooks()">
                         <div class="card-header">
-                            Tutti i Libri
+                            <span>Tutti i libri</span>
+                            <button type="submit" class="btn btn-outline-danger" ng-click="deleteSelectedBooks()">Elimina selezionati</button>
                         </div>
                         <table datatable="ng" class="row-border hover">
                             <thead>
@@ -146,8 +147,9 @@
                                 <th width="20%">Fornitore</th>
                                 <th width="15%">Barcode</th>
                                 <th width="10%">Qt.</th>
-                                <th width="5%"></th>
-                                <th width="5%"></th>
+                                <th width="3%"></th>
+                                <th width="3%"></th>
+                                <th width="4%"></th>
                             </tr>
                             </thead>
                             <tbody>
@@ -159,6 +161,9 @@
                                 <td>{{book.quantity}}</td>
                                 <td><i class="far fa-edit" style="cursor: pointer;" ng-click="setEditBookView(book)"></i></td>
                                 <td><i class="fa fa-trash" style="cursor: pointer;" ng-click="deleteBook(book)"></i></td>
+                                <td>
+                                    <input type="checkbox"  style="cursor: pointer;" ng-click="addToListToDelete(book)">
+                                </td>
                             </tr>
                             </tbody>
                         </table>
