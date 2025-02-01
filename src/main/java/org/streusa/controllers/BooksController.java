@@ -1,6 +1,7 @@
 package org.streusa.controllers;
 
 import com.cloudant.client.api.Database;
+import net.minidev.json.JSONArray;
 import net.minidev.json.JSONObject;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -76,6 +77,22 @@ public class BooksController {
         try{
             DatabaseService.booksDB.remove(deleteBook.get_id(), deleteBook.get_rev());
             jo.put("message", "Libro eliminato correttamente");
+        }catch (Exception e){
+            jo.put("message", "Errore: " +e.getMessage());
+            e.printStackTrace();
+        }
+        return ResponseEntity.status(HttpStatus.OK).body(jo);
+    }
+
+    @PostMapping("/deleteSelectedBooks/booksAdmin")
+    public ResponseEntity<JSONObject> deleteSelectedBooks(@RequestBody List<Book> booksToDelete){
+        JSONObject jo = new JSONObject();
+        try{
+            if(booksToDelete.isEmpty()){
+                ResponseEntity.status(HttpStatus.NO_CONTENT);
+            }
+            booksToDelete.forEach(book -> DatabaseService.booksDB.remove(book.get_id(), book.get_rev()));
+            jo.put("message", "Libri eliminati correttamente");
         }catch (Exception e){
             jo.put("message", "Errore: " +e.getMessage());
             e.printStackTrace();
