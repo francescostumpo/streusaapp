@@ -1,13 +1,10 @@
 package org.streusa.controllers;
 
-import com.cloudant.client.api.Database;
-import net.minidev.json.JSONArray;
 import net.minidev.json.JSONObject;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.streusa.entities.Book;
-import org.streusa.entities.User;
 import org.streusa.services.DatabaseService;
 
 import java.util.ArrayList;
