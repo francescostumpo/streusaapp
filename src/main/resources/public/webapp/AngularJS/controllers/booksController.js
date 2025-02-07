@@ -26,6 +26,7 @@ streusaApp.controller("booksController", ['$scope', '$http', '$location', '$root
             alert(response.data.message);
             $scope.retrieveAllBooks();
             $scope.setAllBooksView();
+            $scope.booksToDelete = {};
         })
     }
 
