@@ -23,8 +23,9 @@ streusaApp.controller("booksController", ['$scope', '$http', '$location', '$root
         let booksToDeleteList = Object.values($scope.booksToDelete)
 
         $http.post(host+"/booksController/api/deleteSelectedBooks/booksAdmin", booksToDeleteList).then(function(response){
+            alert(response.data.message);
             $scope.retrieveAllBooks();
-            mainController.stopProgressIndicator('#loading');
+            $scope.setAllBooksView();
         })
     }
 

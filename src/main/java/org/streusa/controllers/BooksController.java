@@ -88,7 +88,9 @@ public class BooksController {
             if(booksToDelete.isEmpty()){
                 ResponseEntity.status(HttpStatus.NO_CONTENT);
             }
-            booksToDelete.forEach(book -> DatabaseService.booksDB.remove(book.get_id(), book.get_rev()));
+            for(Book book: booksToDelete){
+                DatabaseService.booksDB.remove(book.get_id(), book.get_rev());
+            }
             jo.put("message", "Libri eliminati correttamente");
         }catch (Exception e){
             jo.put("message", "Errore: " +e.getMessage());
